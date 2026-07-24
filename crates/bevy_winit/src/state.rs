@@ -281,6 +281,9 @@ impl ApplicationHandler<WinitUserEvent> for WinitAppRunnerState {
                         }
                         self.bevy_window_events.send(keyboard_input);
                     }
+                    WindowEvent::ModifiersChanged(ref modifiers) => {
+                        warn!("ModifiersChanged: {:?}", modifiers);
+                    }
                     WindowEvent::CursorMoved { position, .. } => {
                         let physical_position = DVec2::new(position.x, position.y);
 
